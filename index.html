@@ -155,13 +155,14 @@ body{
 <div class="deposit-section">
 
   <!-- STEP 1: DEPOSIT DETAILS -->
+
   <div class="deposit-card-trendy step" id="step1">
     <h3>Deposit Details</h3>
 
     <!-- Amount -->
     <div class="form-group">
       <label>Amount</label>
-      <input type="number" placeholder="Enter amount">
+      <input type="number" placeholder="Enter Amount">
     </div>
 
     <!-- Payment Method -->
@@ -292,9 +293,31 @@ body{
 
     <div style="display:flex; gap:10px;">
       <button class="submit-btn" id="backBtn" style="flex:1; background:linear-gradient(135deg,#9d4edd,#c77dff);">Back</button>
-      <button class="submit-btn" style="flex:1;">Submit Deposit</button>
+      <button class="submit-btn" id="submitBtn" style="flex:1;">Submit Deposit</button>
     </div>
   </div>
+
+<!-- Floating Success Card -->
+<div id="successCard" style="
+    display:none;
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #14a301;
+    color: #ffffff;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    text-align: center;
+    z-index: 9999;
+    max-width: 300px;
+">
+    Successfully Done ✅
+</div>
+
+
+
 
 </div>
 
@@ -356,6 +379,46 @@ document.getElementById('backBtn').addEventListener('click', function() {
     step2.style.display = 'none';
     step1.style.display = 'block';
 });
+
+// Next button → Payment Proof
+nextBtn.addEventListener('click', function(e){
+    e.preventDefault();
+    step1.style.display = 'none';
+    step2.style.display = 'block';
+    successCard.style.display = 'none'; // hide success if visible
+});
+
+// Back button → Deposit
+backBtn.addEventListener('click', function(e){
+    e.preventDefault();
+    step2.style.display = 'none';
+    step1.style.display = 'block';
+    successCard.style.display = 'none'; // hide success if visible
+});
+
+
+// Select the Submit Deposit button using its unique id
+const submitBtn = document.getElementById('submitBtn');
+
+// Select the floating success card
+const successCard = document.getElementById('successCard');
+
+// Add click event to Submit button
+submitBtn.addEventListener('click', function(e){
+    e.preventDefault(); // prevent any default form action
+
+    // Show the floating card
+    successCard.style.display = 'block';
+
+    // Scroll smoothly to top of page (optional)
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    // Auto-hide after 3 seconds
+    setTimeout(() => {
+        successCard.style.display = 'none';
+    }, 3000);
+});
+
 </script>
 
 

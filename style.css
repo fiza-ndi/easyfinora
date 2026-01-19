@@ -179,8 +179,8 @@
   cursor: pointer;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  min-height: 40px;
+  justify-content: 0px;
+  min-height: 30px;
   transition: all 0.3s ease;
 }
 
@@ -400,3 +400,7 @@
     padding: 10px;
   }
 }
+
+
+
+
