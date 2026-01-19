@@ -38,6 +38,58 @@
   background: rgba(255,255,255,0.18);
   color: #fff;
 }
+/* Custom Select Wrapper */
+.custom-select {
+  position: relative;
+  width: 50%;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Selected Box */
+.custom-select .selected {
+  padding: 13px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.18);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Dropdown Options */
+.custom-select .options {
+  position: absolute;
+  top: 110%;
+  left: 0;
+  width: 100%;
+  background: #0b1324;
+  border-radius: 12px;
+  overflow: hidden;
+  display: none;
+  z-index: 10;
+}
+
+/* Each Option */
+.custom-select .option {
+  padding: 10px 13px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #fff;
+}
+
+.custom-select .option:hover {
+  background: rgba(255,255,255,0.12);
+}
+
+/* Flag Image Size (IMPORTANT) */
+.custom-select img {
+  width: 20px;
+  height: 14px;
+  object-fit: cover;
+  border-radius: 3px;
+}
 
 /* Next Button */
 .deposit-card-trendy.step .submit-btn {
@@ -188,3 +240,163 @@
   box-shadow: 0 4px 12px rgba(0,0,0,0.2); /* Soft shadow */
 }
 
+/* Overlay */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  display: none;
+  z-index: 99;
+}
+
+/* Modal */
+.country-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 420px;
+  background: #fff;
+  border-radius: 16px;
+  padding: 20px;
+  display: none;
+  z-index: 100;
+  font-family: sans-serif;
+}
+
+/* Header */
+.modal-header {
+  display: flex;
+  color: #000;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-header h3 {
+  margin: 0;
+}
+
+.close-btn {
+  cursor: pointer;
+  font-size: 22px;
+}
+
+/* Info */
+.info-box {
+  background: linear-gradient(135deg,#c77dff,#9d4edd);
+  padding: 10px;
+  border-radius: 8px;
+  margin: 15px 0;
+  font-size: 13px;
+}
+
+/* Grid */
+.modal-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  font-size: 13px;
+}
+
+.modal-grid label {
+  font-weight: 600;
+  color: #555;
+}
+
+/* Amount */
+.amount-box {
+  display: flex;
+  justify-content: space-between;
+  background: linear-gradient(135deg,#c77dff,#9d4edd);
+  padding: 12px;
+  border-radius: 10px;
+  margin: 15px 0;
+}
+
+/* Checkbox */
+.check {
+  font-size: 13px;
+  color: #474747;
+  display: flex;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+/* Button */
+.continue-btn {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(135deg,#c77dff,#9d4edd);
+  border: none;
+  color: #fff;
+  border-radius: 10px;
+  font-size: 15px;
+  cursor: pointer;
+}
+/* Amount Box */
+.amount-box {
+  display: flex;
+  flex-wrap: wrap; /* mobile pe items wrap ho jayein */
+  justify-content: space-between;
+  background: linear-gradient(135deg,#c77dff,#9d4edd);
+  padding: 12px;
+  border-radius: 10px;
+  margin: 15px 0;
+  gap: 10px; /* mobile spacing ke liye */
+}
+
+.amount-box div {
+  flex: 1 1 45%; /* mobile pe 2 items side by side, wrap ho jayein */
+  min-width: 120px; /* chhoti screen me wrap hone ke liye */
+  color: #fff;
+}
+
+/* Checkbox */
+.check {
+  font-size: 13px;
+  color: #474747;
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap; /* mobile pe items wrap ho jayein */
+  margin-bottom: 12px;
+  align-items: center;
+}
+
+/* Button */
+.continue-btn {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(135deg,#c77dff,#9d4edd);
+  border: none;
+  color: #fff;
+  border-radius: 10px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.continue-btn:hover {
+  opacity: 0.9;
+}
+
+/* Media Queries for smaller screens */
+@media (max-width: 480px) {
+  .amount-box {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .amount-box div {
+    flex: 1 1 100%;
+  }
+
+  .check {
+    font-size: 12px;
+    gap: 4px;
+  }
+
+  .continue-btn {
+    font-size: 14px;
+    padding: 10px;
+  }
+}

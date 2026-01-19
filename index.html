@@ -174,10 +174,10 @@ body{
       </select>
     </div>
 
-    <!-- Sender Name -->
+    <!-- Sender Name -->  
     <div class="form-group">
       <label>Sender Name</label>
-      <input type="text" placeholder="Enter sender name">
+      <input type="text" placeholder="Enter Sender Name">
     </div>
 
     <!-- Country Selector -->
@@ -191,10 +191,78 @@ body{
       <div class="option" data-value="gb"><img src="img/UK.jfif" alt="UK"> UK</div>
       <div class="option" data-value="ae"><img src="img/UAE.jfif" alt="UAE"> UAE</div>
       <div class="option" data-value="ca"><img src="img/Canada.jfif" alt="Canada"> Canada</div>
+      <div class="option" data-value="au"><img src="img/Australia.jfif" alt="Australia"> Australia</div>
+      <div class="option" data-value="de"><img src="img/Germany.jfif" alt="Germany"> Germany</div>
+      <div class="option" data-value="fr"><img src="img/France.jfif" alt="France"> France</div>
+      <div class="option" data-value="it"><img src="img/Italy.jfif" alt="Italy"> Italy</div>
+      <div class="option" data-value="sa"><img src="img/SaudiArabia.jfif" alt="Saudi Arabia"> Saudi Arabia</div>
       <!-- Add more countries like this -->
     </div>
   </div>
 </div>
+
+
+
+
+
+<!-- Overlay -->
+<div class="overlay" id="overlay"></div>
+
+<!-- Country Detail Modal -->
+<div class="country-modal" id="countryModal">
+  <div class="modal-header">
+    <div>
+      <h3 style="color: #000;">Pakistan</h3>
+      <p>PKR | Verified by Easy Finora</p>
+    </div>
+    <span class="close-btn" onclick="closeModal()">×</span>
+  </div>
+
+  <div class="info-box">
+    Use for local bank transfers within Pakistan (PKR).
+  </div>
+
+  <div class="modal-grid">
+    <div>
+      <label>Account Holder Name</label>
+      <p>Hammad Khalid</p>
+    </div>
+    <div>
+      <label>Bank Name</label>
+      <p>Meezan Bank Limited</p>
+    </div>
+
+    <div>
+      <label>IBAN</label>
+      <p>PK32MEZN005701112235931</p>
+    </div>
+
+    <div>
+      <label>Bank Address</label>
+      <p>Lahore, Punjab, Pakistan</p>
+    </div>
+  </div>
+
+  <div class="amount-box">
+    <div>
+      <small>Amount in USD</small>
+      <strong>100 USD</strong>
+    </div>
+    <div>
+      <small>Pay in Local Currency</small>
+      <strong>28480 PKR</strong>
+    </div>
+  </div>
+
+  <label class="check">
+    <input type="checkbox" style="color: #000;"> I have completed the payment process
+  </label>
+
+  <button class="continue-btn">Continue</button>
+</div>
+
+
+
 
 
     <!-- Receiver -->
@@ -264,7 +332,30 @@ nextBtn.addEventListener('click', () => {
   step1.style.display = 'none';
   step2.style.display = 'block';
 });
+function openModal() {
+  document.getElementById("countryModal").style.display = "block";
+  document.getElementById("overlay").style.display = "block";
+}
 
+function closeModal() {
+  document.getElementById("countryModal").style.display = "none";
+  document.getElementById("overlay").style.display = "none";
+}
+
+/* call this when country selected */
+document.querySelectorAll('.option').forEach(option => {
+  option.addEventListener('click', () => {
+    openModal();
+  });
+});
+document.querySelector('.continue-btn').addEventListener('click', () => {
+  closeModal();
+});
+// Back button
+document.getElementById('backBtn').addEventListener('click', function() {
+    step2.style.display = 'none';
+    step1.style.display = 'block';
+});
 </script>
 
 
